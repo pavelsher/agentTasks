@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="openapi">
+    <CLASSES>
+      <root url="jar://C:/TeamCity/webapps/ROOT/WEB-INF/lib/openapi.jar!/" />
+      <root url="jar://C:/TeamCity/webapps/ROOT/WEB-INF/lib/util.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
