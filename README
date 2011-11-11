@@ -11,7 +11,7 @@ Installation
 ============
 
 1. Download binary distribution from:
-http://teamcity.jetbrains.com/viewLog.html?buildTypeId=bt333&tab=artifacts&buildId=lastSuccessful
+http://teamcity.jetbrains.com/viewLog.html?buildId=lastSuccessful&buildTypeId=bt333&tab=artifacts
 
 2. Put agentTasks.zip file under <TeamCity data directory>/plugins
 
