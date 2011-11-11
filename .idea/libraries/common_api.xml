@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="common-api">
     <CLASSES>
-      <root url="jar://$TEAMCITY_INST_DIR$/webapps/ROOT/WEB-INF/lib/common-api.jar!/" />
+      <root url="jar://$TeamCityDistribution$/webapps/ROOT/WEB-INF/lib/common-api.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
