@@ -45,6 +45,13 @@ When change is detected in agentTasks.properties file plugin will log messages i
 Loaded task: <enable|disable> agents matching <regexp> on <time>
 
 
+How to build
+============
+
+To build plugin from source code you'll need IntelliJ IDEA Community Edition 10.5 or higher.
+You can download it for free from JetBrains site: http://www.jetbrains.com/idea/download/index.html
+
+
 Compatibility
 ================
 Supported TeamCity versions: 6.5 and higher
