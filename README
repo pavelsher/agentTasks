@@ -1,0 +1,49 @@
+
+Agent Tasks plugin for TeamCity
+===============================
+
+Allows to perform simple operations on a set of agents periodically (each day).
+For now, the only supported operations are: enable and disable.
+The set of agents can only be defined by regexp pattern on agent name.
+
+
+Installation
+============
+
+1. Download binary distribution from:
+http://teamcity.jetbrains.com/viewLog.html?buildTypeId=bt333&tab=artifacts&buildId=lastSuccessful
+
+2. Put agentTasks.zip file under <TeamCity data directory>/plugins
+
+3. Restart your TeamCity server
+
+
+Configuration
+=============
+
+Plugin loads configuration from: <TeamCity data directory>/config/agentTasks.properties file.
+No server restart is required if you modify this file, plugin will detect changes and reload configuration.
+
+In this configuration file you can define tasks using the following syntax:
+agent.task.N = <HH:mm>,<enable|disable>,<agent name regexp>
+
+Example:
+agent.task.1 = 22:00,enable,dev-agent
+agent.task.2 = 8:00,disable,dev-agent
+
+These tasks will:
+- enable all agents containing "dev-agent" in their names in the evening (on 22:00 each day)
+- disable all these agents on the morning
+
+Note that prefix "agent.task.N" must be different for each task. You can comment out a task with help of # character.
+
+
+Compatibility
+================
+Supported TeamCity versions: 6.5 and higher
+
+
+License
+================
+Apache 2.0
+
