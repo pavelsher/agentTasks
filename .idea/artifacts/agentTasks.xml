@@ -5,7 +5,7 @@
       <element id="archive" name="agentTasks.zip">
         <element id="directory" name="server">
           <element id="archive" name="agentTasks.jar">
-            <element id="module-output" name="agents" />
+            <element id="module-output" name="agentTasks" />
           </element>
         </element>
         <element id="file-copy" path="$PROJECT_DIR$/teamcity-plugin.xml" />
