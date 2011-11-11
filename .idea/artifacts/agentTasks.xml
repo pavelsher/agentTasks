@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact name="agentTasks">
+    <output-path>$PROJECT_DIR$/</output-path>
+    <root id="root">
+      <element id="archive" name="agentTasks.zip">
+        <element id="directory" name="server">
+          <element id="archive" name="agentTasks.jar">
+            <element id="module-output" name="agents" />
+          </element>
+        </element>
+        <element id="file-copy" path="$PROJECT_DIR$/teamcity-plugin.xml" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -13,7 +13,6 @@ import jetbrains.buildServer.util.ItemProcessor;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
@@ -21,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 public class AgentTasks {
-  public static final String CONFIG_FILE_NAME = "agentsPlugin.properties";
+  public static final String CONFIG_FILE_NAME = "agentTasks.properties";
   private List<Future> myTasks = new ArrayList<Future>();
   private final ScheduledExecutorService myExecutorService;
   private final BuildAgentManager myAgentManager;
@@ -46,28 +45,38 @@ public class AgentTasks {
   
   private void loadConfiguration(File configFile) {
     Properties props = new Properties();
-    FileInputStream fis = null;
-    try {
-      fis = new FileInputStream(configFile);
-      props.load(fis);
-    } catch (IOException e) {
-      Loggers.SERVER.warn("Failed to load configuration from file: " + configFile.getAbsolutePath() + ", error: " + e.toString());
-    } finally {
-      FileUtil.close(fis);
+
+    if (configFile.isFile()) {
+      Loggers.SERVER.info("Loading configuration from file: " + configFile.getAbsolutePath());
+      FileInputStream fis = null;
+      try {
+        fis = new FileInputStream(configFile);
+        props.load(fis);
+      } catch (IOException e) {
+        Loggers.SERVER.warn("Failed to load configuration from file: " + configFile.getAbsolutePath() + ", error: " + e.toString());
+      } finally {
+        FileUtil.close(fis);
+      }
     }
-    
+
     List<TaskDescriptor> tasks = new ArrayList<TaskDescriptor>();
     
     for (String p: props.stringPropertyNames()) {
       String taskDef = (String) props.get(p);
       String[] splitted = taskDef.split(",");
       try {
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-        final Date time = sdf.parse(splitted[0]);
+        String[] timeStr = splitted[0].split(":");
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.HOUR, Integer.parseInt(timeStr[0]));
+        c.set(Calendar.MINUTE, Integer.parseInt(timeStr[1]));
+        c.set(Calendar.SECOND, 0);
+        final Date time = c.getTime();
         final String taskName = splitted[1];
         final Pattern regexp = Pattern.compile(splitted[2]);
-        
-        tasks.add(new TaskDescriptor() {
+
+        Loggers.SERVER.info("Loaded task: " + taskName + " agents matching " + splitted[2] + " on " + splitted[0]);
+
+        TaskDescriptor td = new TaskDescriptor() {
           public Date getScheduledTime() {
             return time;
           }
@@ -87,7 +96,8 @@ public class AgentTasks {
               }
             };
           }
-        });
+        };
+        tasks.add(td);
       } catch (Exception e) {
         Loggers.SERVER.warn("Failed to load task definition: " + taskDef + ", error: " + e.toString());
       }
