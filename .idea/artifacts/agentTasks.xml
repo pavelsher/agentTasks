@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact name="agentTasks">
-    <output-path>$PROJECT_DIR$/</output-path>
+    <output-path>$PROJECT_DIR$/dist</output-path>
     <root id="root">
       <element id="archive" name="agentTasks.zip">
         <element id="directory" name="server">
