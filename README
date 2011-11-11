@@ -17,6 +17,8 @@ http://teamcity.jetbrains.com/viewLog.html?buildTypeId=bt333&tab=artifacts&build
 
 3. Restart your TeamCity server
 
+4. Navigate to Administration -> Server Configuration -> Plugins tab and check that Agent Tasks plugin is in the list.
+
 
 Configuration
 =============
@@ -50,6 +52,12 @@ How to build
 
 To build plugin from source code you'll need IntelliJ IDEA Community Edition 10.5 or higher.
 You can download it for free from JetBrains site: http://www.jetbrains.com/idea/download/index.html
+
+TeamCity server must be installed too, as plugin depends on jar files from TeamCity.
+You'll need to add IntelliJ IDEA Path Variable with name TEAMCITY_INST_DIR pointing to TeamCity installation directory.
+
+To build plugin use menu: Build -> Build 'agentTasks' artifact. If everything is configured correctly, the binary file "agentTasks.zip" will be created under the "dist" directory.
+See "Installation" section for information how to install it in TeamCity.
 
 
 Compatibility
