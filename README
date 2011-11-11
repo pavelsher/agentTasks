@@ -37,6 +37,13 @@ These tasks will:
 
 Note that prefix "agent.task.N" must be different for each task. You can comment out a task with help of # character.
 
+When configuration file changes, plugin will completely remove all previous tasks and create new.
+For now, there is no way to specify dates, so you can't configure plugin to work during weekends only.
+All tasks are executed each day.
+
+When change is detected in agentTasks.properties file plugin will log messages into the teamcity-server.log like:
+Loaded task: <enable|disable> agents matching <regexp> on <time>
+
 
 Compatibility
 ================
