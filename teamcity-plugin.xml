@@ -3,7 +3,7 @@
 	<info>
 		<name>agent.tasks</name>
 		<display-name>Agent Tasks plugin, performs some tasks for selected set of agents, periodically</display-name>
-		<version>SNAPSHOT</version>
+		<version>0.1</version>
     	<vendor>
       		<name>JetBrains, s.r.o.</name>
       		<url>http://www.jetbrains.com</url>
