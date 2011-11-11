@@ -54,7 +54,7 @@ To build plugin from source code you'll need IntelliJ IDEA Community Edition 10.
 You can download it for free from JetBrains site: http://www.jetbrains.com/idea/download/index.html
 
 TeamCity server must be installed too, as plugin depends on jar files from TeamCity.
-You'll need to add IntelliJ IDEA Path Variable with name TEAMCITY_INST_DIR pointing to TeamCity installation directory.
+You'll need to add IntelliJ IDEA Path Variable with name "TeamCityDistribution" pointing to TeamCity installation directory.
 
 To build plugin use menu: Build -> Build 'agentTasks' artifact. If everything is configured correctly, the binary file "agentTasks.zip" will be created under the "dist" directory.
 See "Installation" section for information how to install it in TeamCity.
