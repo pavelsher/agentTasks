@@ -67,7 +67,7 @@ public class AgentTasks {
       try {
         String[] timeStr = splitted[0].split(":");
         Calendar c = Calendar.getInstance();
-        c.set(Calendar.HOUR, Integer.parseInt(timeStr[0]));
+        c.set(Calendar.HOUR_OF_DAY, Integer.parseInt(timeStr[0]));
         c.set(Calendar.MINUTE, Integer.parseInt(timeStr[1]));
         c.set(Calendar.SECOND, 0);
         final Date time = c.getTime();
